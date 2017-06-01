@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+	
+	<!-- <import resource="server-protocols.xml"></import> -->
+	
+	<context:annotation-config />
+	
+	<!-- Configure all properties files here, wildcards like *.properties are also allowed -->
+	<!-- <context:property-placeholder
+		location="classpath:props/server.properties" /> -->
+		
+	<util:properties id="appProperties" location="classpath:props/server.properties" />
+	<context:property-placeholder properties-ref="appProperties"/>		
+		
+	<!-- The Spring application context -->
+	<bean id="appContext" class="com.aiblockchain.context.AppContext"></bean>
+	
+	<bean id="DbManager" class="com.aiblockchain.service.db.DbManagerImpl"></bean>
+	<bean id="FileManager" class="com.aiblockchain.service.file.FileManagerImpl"></bean>
+	<bean id="UtilsManager" class="com.aiblockchain.service.aiutils.UtilsManagerImpl">
+		<!-- <property name="properties" ref="appProperties"/> -->
+	</bean>
+	<bean id="AWSServiceManager" class="com.aiblockchain.service.aws.AWSServiceManagerImpl"></bean>
+		
+	<!--<bean id="AIBlockChainResource" class="com.aiblockchain.rest.resource.AIBlockChainResource"></bean>
+	<bean id="SapHana2Resource" class="com.aiblockchain.rest.resource.SapHana2Resource">-->
+		<!-- <property name="utils" ref="UtilsManager"/>
+	</bean>-->
+	
+</beans>

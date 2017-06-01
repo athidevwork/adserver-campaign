@@ -1,0 +1,21 @@
+#OS junk files
+[Tt]humbs.db
+*.DS_Store
+
+#project files
+target/
+server.log
+*.iml
+*.json
+.idea/
+.settings/
+
+#test files
+test-output/
+
+#build files
+dependency-reduced-pom.xml
+/nbproject/
+
+#gitmerge
+*.orig
