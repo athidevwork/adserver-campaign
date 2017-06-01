@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.adserver.campaign.domain;
+package com.adserver.campaign.model;
 
 import java.time.LocalDateTime;
 
